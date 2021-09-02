@@ -3,7 +3,8 @@ import TagsInput from './components/TagsInput';
 import './App.css';
 
 const App = () => {
-  const [tags, setTags] = useState([]);
+  const [techTags, setTechTags] = useState([]);
+  const [softTags, setSfotTags] = useState([]);
   const [techSkills, setTechSkills] = useState([
     { id: 1, name: 'Javascript' },
     { id: 2, name: 'PHP' },
@@ -26,14 +27,14 @@ const App = () => {
   return (
     <div style={{ margin: 10 }}>
       <TagsInput
-        tags={tags}
-        setTags={setTags}
+        tags={techTags}
+        setTags={setTechTags}
         suggestions={techSkills}
         noSuggestionsText='No tech skills found'
       />
       <TagsInput
-        tags={tags}
-        setTags={setTags}
+        tags={softTags}
+        setTags={setSfotTags}
         suggestions={softSkills}
         noSuggestionsText='No soft skills found'
       />
