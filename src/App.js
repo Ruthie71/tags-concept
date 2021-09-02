@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React, { useState } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import { InputTags } from "react-bootstrap-tagsinput";
+import "react-bootstrap-tagsinput/dist/index.css";
+
+const App = () => {
+    const [state, setState] = useState([]);
+    return (
+        <div style={{ margin: 10 }}>
+            <div className="input-group">
+                <InputTags
+                    values={state}
+                    onTags={(value) => setState(value.values)}
+                />
+                <button
+                    className="btn btn-outline-secondary"
+                    type="button"
+                    data-testid="button-clearAll"
+                    onClick={() => {
+                        setState([]);
+                    }}
+                >
+                    Delete all
+                </button>
+            </div>
+            <hr />
+            {/* <ol>
+                {state.map((item, index) => (
+                    <li key={item + index}>{item}</li>
+                ))}
+            </ol> */}
+        </div>
+    );
+};
 
 export default App;
